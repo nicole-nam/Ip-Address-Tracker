@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="sass/main.css" />
+    <title>IP Address Tracker</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__text">IP Address Tracker</h1>
+      <form action="/" class="form" method="POST">
+        <input
+          name="newInput"
+          type="text"
+          class="form__input"
+          autocomplete="off"
+          placeholder=""
+          Search
+          for
+          any
+          IP
+          address
+          or
+          domain
+        />
+        <button class="btn" type="submit">
+          <img src="images/icon-arrow.svg" alt="" />
+        </button>
+      </form>
+    </header>
+    <section class="output output-hidden">
+      <div class="output__results">
+        <p>IP Address</p>
+        <h2><%= newAddress %></h2>
+      </div>
+      <hr />
+      <div class="output__results">
+        <p>Location</p>
+        <h2>Brooklyn, NY 10001</h2>
+      </div>
+      <hr />
+      <div class="output__results">
+        <p>Timezone</p>
+        <h2>UTC-05:00</h2>
+      </div>
+      <hr />
+      <div class="output__results">
+        <p>ISP</p>
+        <h2>SpaceX Starlink</h2>
+      </div>
+    </section>
+  </body>
+</html>

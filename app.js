@@ -6,22 +6,30 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.set("view engine", "ejs");
+
+let ipAddress = "";
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.render("ip", { newAddress: ipAddress });
 });
 
-var ip = "8.8.8.8";
-var api_key = "at_SPsO6PxuGUMOvlwB1YhYNtD6skg4f";
-var api_url = "https://geo.ipify.org/api/v1?";
+app.post("/", (req, res) => {
+  ipAddress = req.body.newInput;
+  console.log(ipAddress);
+  var api_key = "at_SPsO6PxuGUMOvlwB1YhYNtD6skg4f";
+  var api_url = "https://geo.ipify.org/api/v1?";
 
-var url = `${api_url}apiKey=${api_key}&ipAddress=${ip}`;
+  var url = `${api_url}apiKey=${api_key}&ipAddress=${ipAddress}`;
 
-https.get(url, function (response) {
-  response.on("data", (d) => {
-    const ipData = JSON.parse(d);
-    console.log(ipData);
+  https.get(url, function (response) {
+    response.on("data", (d) => {
+      const ipData = JSON.parse(d);
+      console.log(ipData);
+    });
   });
+
+  res.redirect("/");
 });
 
 app.listen(3000, () => {
