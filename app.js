@@ -5,9 +5,10 @@ var bodyParser = require("body-parser");
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
-app.get("/", (req, response) => {
-  res.send("Hello World!");
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
 });
 
 var ip = "8.8.8.8";
@@ -16,14 +17,12 @@ var api_url = "https://geo.ipify.org/api/v1?";
 
 var url = `${api_url}apiKey=${api_key}&ipAddress=${ip}`;
 
-https
-  .get(url, function (response) {
-    response.on("data", (d)=>{
-        const ipData = JSON.parse(d);
-        console.log(ipData);
-    })
-  })
-
+https.get(url, function (response) {
+  response.on("data", (d) => {
+    const ipData = JSON.parse(d);
+    console.log(ipData);
+  });
+});
 
 app.listen(3000, () => {
   console.log("server started on port 3000");

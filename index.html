@@ -11,14 +11,56 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
+    <link rel="stylesheet" href="sass/main.css" />
     <title>IP Address Tracker</title>
   </head>
   <body>
-    IP Address Tracker Search for any IP address or domain IP Address Location
-    Timezone UTC
+    <header class="header">
+      <h1 class="header__text">IP Address Tracker</h1>
+      <form action="/" class="form" method="POST">
+        <div class="form__input">
+          <input
+            type="text"
+            class="input"
+            placeholder=""
+            Search
+            for
+            any
+            IP
+            address
+            or
+            domain
+          />
+        </div>
+        <div class="form__btn">
+          <button class="btn" type="submit">
+            <img src="images/icon-arrow.svg" alt="" />
+          </button>
+        </div>
+      </form>
+    </header>
+    <main class="main">
+      <section class="results">
+        <div class="results__output">
+          <p>IP Address</p>
+          <h2></h2>
+        </div>
+        <div class="results__output">
+          <p>  Location </p>
+          <h2></h2>
+        </div>
+        <div class="results__output">
+          <p>  Timezone</p>
+          <h2></h2>
+        </div>
+        <div class="results__output">
+          <p>ISP</p>
+          <h2></h2>
+        </div>
+      </section>
+    </main>
+
     <!-- add offset value dynamically using the API -->
-    ISP
-    <script src="app.js"></script>
+  
   </body>
 </html>
