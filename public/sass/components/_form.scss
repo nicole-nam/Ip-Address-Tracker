@@ -1,3 +1,38 @@
 .form {
-text-align: center;
+  text-align: center;
+
+  display: flex;
+  position: relative;
+  margin: 5rem auto;
+  width: 50rem;
+
+  &__input {
+    padding: 1rem 2rem;
+    width: 50rem;
+    border-radius: 13px;
+    border: transparent;
+
+    &[type="text"] {
+      font-size: 1.8rem;
+      color: $color-grey-dark;
+    }
+  }
+}
+
+.btn {
+  background-color: $color-grey-dark;
+  border: none;
+  padding: 1.3rem 2rem;
+  border-top-right-radius: 13px;
+  border-bottom-right-radius: 13px;
+
+
+  position: absolute;
+  right: 0;
+  top: 50%;
+    transform: translateY(-50%);
+}
+
+img {
+  background-color: $color-grey-dark;
 }
