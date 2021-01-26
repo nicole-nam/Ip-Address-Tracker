@@ -12,6 +12,10 @@
     border-radius: 13px;
     border: transparent;
 
+    &:focus {
+      outline: none;
+    }
+    
     &[type="text"] {
       font-size: 1.8rem;
       color: $color-grey-dark;
@@ -26,11 +30,10 @@
   border-top-right-radius: 13px;
   border-bottom-right-radius: 13px;
 
-
   position: absolute;
   right: 0;
   top: 50%;
-    transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 img {

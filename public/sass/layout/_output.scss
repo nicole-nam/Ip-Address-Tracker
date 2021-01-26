@@ -1,0 +1,22 @@
+.output {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+
+  width: 70rem;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 13px;
+  padding: 3rem;
+
+  &__results {
+    text-align: left;
+    width: 10rem;
+    color: $color-grey-dark;
+
+  }
+}
+
+.output-hidden {
+    opacity: 0;
+}
