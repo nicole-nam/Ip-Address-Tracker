@@ -1,6 +1,7 @@
 const express = require("express");
 const https = require("https");
 var bodyParser = require("body-parser");
+console.log(module);
 
 const app = express();
 
@@ -8,11 +9,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-let ip, location, timeZone, isp, lat, lng;
-// var mymap = L.map("mapid").setView([51.505, -0.09], 13);
+let ip, location, timeZone, cityName, region, postalCode, isp, lat, lng;
 
 app.get("/", (req, res) => {
-  res.render("ip", { newAddress: ip, ispName: isp, time: timeZone });
+  res.render("ip", {
+    newAddress: ip,
+    ispName: isp,
+    time: timeZone,
+    city: cityName,
+    regionName: region,
+    code: postalCode
+  });
 });
 
 app.post("/", (req, res) => {
@@ -27,7 +34,6 @@ app.post("/", (req, res) => {
   https.get(url, function (response) {
     response.on("data", (d) => {
       const ipData = JSON.parse(d);
-      console.log(ipData);
 
       //Location
       ip = ipData.ip;
@@ -38,11 +44,9 @@ app.post("/", (req, res) => {
 
       //Time zone
       timeZone = location.timezone;
-      console.log(timeZone);
 
       //ISP
       isp = ipData.isp;
-      console.log(isp);
 
       //latitude + longitude
       lat = location.lat;
