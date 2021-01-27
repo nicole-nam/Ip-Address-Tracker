@@ -36,14 +36,7 @@
           type="text"
           class="form__input"
           autocomplete="off"
-          placeholder=""
-          Search
-          for
-          any
-          IP
-          address
-          or
-          domain
+          placeholder="Search for any ip address"
         />
         <button class="btn" type="submit" name="ip">
           <img src="images/icon-arrow.svg" class="arrow" alt="submit arrow" />
@@ -58,12 +51,12 @@
       <hr />
       <div class="output__results">
         <p>Location</p>
-        <h2><%= city %>, <%= regionName %><br /><%= code %></h2>
+        <h2><%= city %> <%= regionName %><br /><%= code %></h2>
       </div>
       <hr />
       <div class="output__results">
         <p>Timezone</p>
-        <h2>UTC <%= time %></h2>
+        <h2><%= time %></h2>
       </div>
       <hr />
       <div class="output__results">

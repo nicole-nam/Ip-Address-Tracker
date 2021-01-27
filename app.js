@@ -1,7 +1,6 @@
 const express = require("express");
 const https = require("https");
 var bodyParser = require("body-parser");
-console.log(module);
 
 const app = express();
 
@@ -18,14 +17,14 @@ app.get("/", (req, res) => {
     time: timeZone,
     city: cityName,
     regionName: region,
-    code: postalCode
+    code: postalCode,
   });
 });
 
 app.post("/", (req, res) => {
-  ipAddress = req.body.newInput;
+  let ipAddress = req.body.newInput;
+  console.log(req.body);
 
-  console.log(ipAddress);
   var api_key = "at_SPsO6PxuGUMOvlwB1YhYNtD6skg4f";
   var api_url = "https://geo.ipify.org/api/v1?";
 
@@ -38,12 +37,12 @@ app.post("/", (req, res) => {
       //Location
       ip = ipData.ip;
       location = ipData.location;
-      cityName = location.city;
+      cityName = `${location.city},`;
       region = location.region;
       postalCode = location.postalCode;
 
       //Time zone
-      timeZone = location.timezone;
+      timeZone = `UTC${location.timezone}`;
 
       //ISP
       isp = ipData.isp;
@@ -51,7 +50,6 @@ app.post("/", (req, res) => {
       //latitude + longitude
       lat = location.lat;
       lng = location.lng;
-      console.log(lat, lng);
     });
     res.redirect("/");
   });

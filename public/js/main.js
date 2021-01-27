@@ -1,4 +1,4 @@
-var map = L.map("map", { zoomControl: false }).setView([35.6762, 139.6503], 13);
+var map = L.map("map", { zoomControl: false }).setView([51.5, -0.09], 13);
 var mapIcon = L.icon({
   iconUrl: "/images/icon-location.svg",
   iconSize: [38, 45], // size of the icon
@@ -15,5 +15,5 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 L.marker([51.5, -0.09], { icon: mapIcon })
   .addTo(map)
-  // .bindPopup("Hello, there! ✋")
+  // .bindPopup("current location! ✋")
   .openPopup();
