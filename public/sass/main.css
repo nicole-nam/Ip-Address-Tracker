@@ -12,7 +12,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 5rem;
-  width: 70rem;
+  width: 100rem;
   margin: auto;
   background-color: #fff;
   border-radius: 13px;
@@ -20,9 +20,23 @@
 }
 
 .output__results {
+  display: inline-table;
   text-align: left;
   width: 10rem;
   color: #2b2b2b;
+}
+
+.output-hidden {
+  opacity: 1;
+  z-index: 2000;
+}
+
+#map {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 27%;
+  z-index: -20000;
 }
 
 *,
@@ -48,7 +62,7 @@ body {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   text-align: center;
-  height: 30vh;
+  height: 10vh;
 }
 
 .form {
