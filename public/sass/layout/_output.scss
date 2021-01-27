@@ -20,6 +20,8 @@
 .output-hidden {
   opacity: 1;
   z-index: 2000;
+  grid-column: 2/10;
+  grid-row: 4 / 6;
 }
 
 #map {
